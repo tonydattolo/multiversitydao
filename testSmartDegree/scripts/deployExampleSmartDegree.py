@@ -71,7 +71,7 @@ def updateRinkeyby():
         instructorAccount,
         "CS 201",
         "Object Oriented Programming", 
-        {'from': studentAccount},
+        {'from': instructorAccount},
         )
     storeCompletedCourse.wait(1)
 
@@ -95,20 +95,7 @@ def deploySmartDegree():
     
     print(f'{currentStoredValue=}')
 
-def updateSmartDegree():
-    instructorAccount = accounts[1]
-    simpleStorage = SimpleStorage.deploy({'from': account}) # accessing SimpleStorage.sol
-    # Transact
-    # Call
-    currentStoredValue = simpleStorage.retrieve()
-    print(f'{currentStoredValue=}')
-    
-    storeValueTx = simpleStorage.store(666, {'from': account})
-    storeValueTx.wait(1)
-    
-    currentStoredValue = simpleStorage.retrieve()
-    
-    print(f'{currentStoredValue=}')
+
 
 def main():
     deployAndTestLocal()
